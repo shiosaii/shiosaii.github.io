@@ -7,6 +7,9 @@ compile_sass = true
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
 
+# Global Theme
+theme = "anemone"
+
 [markdown]
 
 [markdown.highlighting]
@@ -14,3 +17,14 @@ theme = "catppuccin-mocha"
 
 [extra]
 # Put all your custom variables here
+
+# Put links in headers
+header_nav = [
+	{ url = "/", name_en = "/home/" },
+	{ url = "/", name_en = "/archive/" },
+]
+
+# Ensure recent posts show up on the homepage
+list_pages = true
+display_author = true
+author = "shiosaii"
