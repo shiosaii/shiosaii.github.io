@@ -23,7 +23,7 @@ jobs:
         with:
           submodules: 'recursive' # CRUCIAL: This pulls in Anemone
       - name: build
-        uses: getzola/github-pages@v1.0.1
+        uses: getzola/github-pages@v1
         with:
           zola_version: 0.19.2 # Or whatever version you have on Arch
 
