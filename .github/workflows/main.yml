@@ -25,7 +25,7 @@ jobs:
       - name: build
         uses: getzola/github-pages@v1
         with:
-          zola_version: 0.19.2 # Or whatever version you have on Arch
+          zola_version: v0.19.2 # Or whatever version you have on Arch
 
   deploy:
     runs-on: ubuntu-latest
