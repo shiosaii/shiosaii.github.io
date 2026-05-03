@@ -10,6 +10,12 @@ build_search_index = true
 # Global Theme
 theme = "anemone"
 
+# Define the containers for metadata in the pluses
+taxonomies = [
+	{name = "categories", feed = true},
+	{name = "tags", feed = true},
+]
+
 [markdown]
 
 [markdown.highlighting]
@@ -21,7 +27,7 @@ theme = "catppuccin-mocha"
 # Put links in headers
 header_nav = [
 	{ url = "/", name_en = "/home/" },
-	{ url = "/", name_en = "/archive/" },
+	{ url = "/archive", name_en = "/archive/" },
 ]
 
 # Ensure recent posts show up on the homepage
