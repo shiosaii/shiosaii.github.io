@@ -1,0 +1,36 @@
+{% extends "anemone/templates/index.html" %}
+
+{% block content %}
+{{ section.content | safe }}
+
+<h2 id="latest-adventures">Latest Adventures</h2>
+{% set archive_data = get_section(path="archive/_index.md") %}
+
+<table class="article-table">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Title</th>
+        </tr>
+    </thead>
+    <tbody>
+        {# We merge pages AND pages from subsections to be safe #}
+        {% set all_pages = archive_data.pages %}
+        {% for sub in archive_data.subsections %}
+            {% set sub_section = get_section(path=sub) %}
+            {% set_global all_pages = all_pages | concat(with=sub_section.pages) %}
+        {% endfor %}
+
+        {% for page in all_pages | sort(attribute="date") | reverse | slice(end=5) %}
+        <tr>
+            <td>{{ page.date | date(format="%Y-%m-%d") }}</td>
+            <td><a href="{{ page.permalink }}">{{ page.title }}</a></td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="2">No adventures found in the scrolls yet.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}
